@@ -20,9 +20,9 @@ export function ContactList({ contacts, onSelectContact, removeContact }) {
       <table className="contacts">
         <tbody>
           <tr>
-            <th> id</th>
-            <th> Name</th>
-            <th> Last name</th>
+            <th>id</th>
+            <th>Name</th>
+            <th>Last name</th>
             <th>Actions</th>
           </tr>
           {contacts.map((contact) => (
