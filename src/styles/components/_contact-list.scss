@@ -1,0 +1,34 @@
+.contacts {
+    border-collapse: collapse;
+    width: 100%;
+    cursor: pointer;
+    box-shadow: -3px 4px 27px -12px;
+  
+   td, th {
+    border: 1px solid rgb(170, 170, 170);
+    padding: 8px;
+  }
+  
+   tr{background-color: #f2f2f2;}
+  
+   tr:hover {background-color: #ddd;}
+  
+   th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background: #d6d6d6;
+    
+  }
+  .contact-actions{
+      display: flex;
+      justify-content: space-evenly;
+  }
+}
+
+.action-btns {
+  .css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root{
+    color: white;
+
+  }
+}
