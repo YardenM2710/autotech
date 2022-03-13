@@ -20,7 +20,7 @@ export function Home() {
           <p>Hope youll enjoy this project</p>
 
           <div>
-            <Lottie options={defaultOptions} height={400} width={400} />
+            <Lottie options={defaultOptions} height={300} width={300} />
           </div>
           <button
             onClick={() => history.push('/contact')}
