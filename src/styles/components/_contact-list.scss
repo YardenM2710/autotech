@@ -31,3 +31,22 @@
 
   }
 }
+
+
+@media (max-width: 500px){
+.contacts{
+  .contact-actions{
+    justify-content: initial;
+  }
+  td, th {
+    padding: 3px;
+    font-size: 16px;
+  }
+  th{
+    height:50px;
+  }
+  td:not(:last-child) {
+    width:30px
+  }
+}
+}

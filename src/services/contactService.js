@@ -16,19 +16,16 @@ const gDefaultContacts = [
     _id: makeId(),
     name: 'Ochoa ',
     lastName: 'Hyde',
-    src: 'user-1.png',
   },
   {
     _id: makeId(),
     name: 'Dominique ',
     lastName: 'Sote',
-    src: 'user-2.png',
   },
   {
     _id: makeId(),
     name: 'Floyd ',
     lastName: 'Rutledge',
-    src: 'user-3.png',
   },
 ];
 
@@ -38,8 +35,10 @@ function query(filterBy) {
   let contactsToReturn = gContacts;
   if (filterBy) {
     var { text } = filterBy;
-    contactsToReturn = gContacts.filter((contact) =>
-      contact.name.toLowerCase().includes(text.toLowerCase())
+    contactsToReturn = gContacts.filter(
+      (contact) =>
+        contact.name.toLowerCase().includes(text.toLowerCase()) ||
+        contact.lastName.toLowerCase().includes(text.toLowerCase())
     );
   }
   return Promise.resolve([...contactsToReturn]);
