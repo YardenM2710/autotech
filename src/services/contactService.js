@@ -13,19 +13,39 @@ const STORAGE_KEY = 'contacts';
 
 const gDefaultContacts = [
   {
-    _id: makeId(),
+    _id: makeId(7),
     name: 'Ochoa ',
     lastName: 'Hyde',
   },
   {
-    _id: makeId(),
+    _id: makeId(7),
     name: 'Dominique ',
     lastName: 'Sote',
   },
   {
-    _id: makeId(),
+    _id: makeId(7),
     name: 'Floyd ',
     lastName: 'Rutledge',
+  },
+  {
+    _id: makeId(7),
+    name: 'Glenna ',
+    lastName: 'Santana',
+  },
+  {
+    _id: makeId(7),
+    name: 'Pinhas ',
+    lastName: 'Hakatan',
+  },
+  {
+    _id: makeId(7),
+    name: 'John ',
+    lastName: 'Lennux',
+  },
+  {
+    _id: makeId(7),
+    name: 'Optimus ',
+    lastName: 'Prime',
   },
 ];
 

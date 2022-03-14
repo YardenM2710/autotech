@@ -28,11 +28,12 @@
         flex-direction: column;
         position: fixed;
         align-items: center;
+        justify-content: space-evenly;
         right: 0px;
         top: 0px;
         width: 200px;
-        background: rgb(255, 255, 255);
-        height: 20vh;
+        background: rgb(48, 48, 48);
+        height: 17vh;
         z-index: 1;
         border-radius: 0 0 0 25px;
         transform: translate(100%);
@@ -42,7 +43,8 @@
         a{
             font-size:1.2em;
             color: black;
-            margin-top: 30px;
+        color: white;
+
         }
       
     }
@@ -54,6 +56,6 @@
     right: 0;
     height:100vh;
     width:100vw;
-    background-color: rgba(138, 138, 138, 0.438);
+    background-color: rgba(0, 0, 0, 0.438);
     z-index: 1;
 }
