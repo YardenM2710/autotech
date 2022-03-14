@@ -42,7 +42,11 @@ export function _ContactEdit(props) {
   if (!contact) return <div>Loading...</div>;
   return (
     <div className="contact-edit bounce-in-top ">
-      <img src={`https://robohash.org/${contact._id}`} alt="" />
+      <img
+        style={{ width: '200px' }}
+        src={`https://robohash.org/${contact._id}`}
+        alt=""
+      />
       <form onSubmit={onSaveContact}>
         <label htmlFor="name">Name</label>
         <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>

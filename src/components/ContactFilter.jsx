@@ -17,7 +17,7 @@ export function ContactFilter({ onChangeFilter }) {
   return (
     <form className="contact-filter">
       <section className="input-container">
-        <label htmlFor="text">Seach Contacts :</label>
+        <label htmlFor="text">Search Contacts </label>
         <TextField
           id="standard-basic"
           placeholder="Contact name"
