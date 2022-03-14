@@ -20,7 +20,7 @@ export function ContactFilter({ onChangeFilter }) {
         <label htmlFor="text">Search Contacts </label>
         <TextField
           id="standard-basic"
-          placeholder="Contact name"
+          placeholder="Contact name / Last name"
           onChange={handleChange}
           value={filterBy.text}
           type="text"

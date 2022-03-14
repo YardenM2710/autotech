@@ -20,6 +20,7 @@
 
     @include for-wide-layout {
         max-width: $normal-breakpoint;
+        padding: 25px 5px;
     }
 }
 

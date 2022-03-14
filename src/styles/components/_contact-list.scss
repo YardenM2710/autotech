@@ -35,12 +35,12 @@
 
 @media (max-width: 500px){
 .contacts{
-  .contact-actions{
-    justify-content: initial;
-  }
+text-align: center;
   td, th {
     padding: 3px;
     font-size: 16px;
+text-align: center;
+
   }
   th{
     height:50px;
