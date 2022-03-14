@@ -1,20 +1,12 @@
-import IconButton from '@mui/material/IconButton';
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
-
-export function ContactList({ contacts, onSelectContact, removeContact }) {
-  const onRemoveContact = (ev, id) => {
-    ev.stopPropagation();
-    ev.preventDefault();
-    removeContact(id);
-  };
-
-  const onEditContact = (ev, id) => {
-    ev.preventDefault();
-    ev.stopPropagation();
-    onSelectContact(id);
-  };
-
+import { ItemPreview } from './ItemPreview';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+export function ContactList({
+  contacts,
+  onSelectContact,
+  removeContact,
+  moveCard,
+}) {
   return (
     <section className="contact-list">
       <table className="contacts">
@@ -25,29 +17,19 @@ export function ContactList({ contacts, onSelectContact, removeContact }) {
             <th>Last name</th>
             <th>Actions</th>
           </tr>
-          {contacts.map((contact) => (
-            <tr key={contact._id}>
-              <td>{contact._id}</td>
-              <td>{contact.name}</td>
-              <td>{contact.lastName}</td>
-              <td className="contact-actions">
-                <IconButton
-                  onClick={(ev) => onRemoveContact(ev, contact._id)}
-                  edge="end"
-                  aria-label="delete"
-                >
-                  <DeleteIcon />
-                </IconButton>
-                <IconButton
-                  onClick={(ev) => onEditContact(ev, contact._id)}
-                  edge="end"
-                  aria-label="edit"
-                >
-                  <EditIcon />
-                </IconButton>
-              </td>
-            </tr>
-          ))}
+          <DndProvider backend={HTML5Backend}>
+            {contacts.map((contact, idx) => (
+              <ItemPreview
+                key={contact._id}
+                contact={contact}
+                onSelectContact={onSelectContact}
+                removeContact={removeContact}
+                index={idx}
+                id={contact._id}
+                moveCard={moveCard}
+              />
+            ))}
+          </DndProvider>
         </tbody>
       </table>
     </section>

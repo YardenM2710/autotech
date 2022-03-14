@@ -21,7 +21,6 @@ export function _ContactEdit(props) {
     const contact = id
       ? await contactService.getById(id)
       : contactService.getEmptyContact();
-    console.log(contact);
     setContact(contact);
   }, []);
 
@@ -33,7 +32,6 @@ export function _ContactEdit(props) {
 
   const onSaveContact = (ev) => {
     ev.preventDefault();
-    console.log(contact.name, contact.lastName);
     if (!contact.name || !contact.lastName) {
       return alert('First name or Last name is required');
     }

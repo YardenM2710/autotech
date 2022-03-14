@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
-import { contactService } from '../services/contactService';
+import { useEffect, useCallback, useState } from 'react';
 import { connect } from 'react-redux';
 import { ContactList } from '../components/ContactList';
+import { ContactFilter } from '../components/ContactFilter';
 import AddIcon from '@mui/icons-material/Add';
 import IconButton from '@mui/material/IconButton';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import update from 'immutability-helper';
 
 import {
   loadContacts,
@@ -13,12 +14,22 @@ import {
 } from '../store/actions/contactActions';
 
 export function _ContactsPage(props) {
+  const [data, setData] = useState(null);
   const { contacts } = props;
   const history = useHistory();
 
-  useEffect(async () => {
+  useEffect(() => {
+    setData(contacts);
+  }, [contacts]);
+
+  useEffect(() => {
     props.loadContacts();
   }, []);
+
+  const onChangeFilter = (filterBy) => {
+    props.setFilterBy(filterBy);
+    props.loadContacts();
+  };
 
   const removeContact = async (id) => {
     props.removeContact(id);
@@ -32,19 +43,33 @@ export function _ContactsPage(props) {
     history.push(`/contact/edit/`);
   };
 
-  if (!contacts) return <div>Loading...</div>;
+  const moveCard = useCallback((dragIndex, hoverIndex) => {
+    setData((prevCards) =>
+      update(prevCards, {
+        $splice: [
+          [dragIndex, 1],
+          [hoverIndex, 0, prevCards[dragIndex]],
+        ],
+      })
+    );
+  }, []);
+
+  if (!data) return <div>Loading...</div>;
   return (
     <div className="contacts-page container puff-in-center">
+      <ContactFilter onChangeFilter={onChangeFilter} />
       <div className="action-btns ">
         <IconButton onClick={onAddNewContact} edge="end" aria-label="delete">
           <label>Add</label>
           <AddIcon />
         </IconButton>
       </div>
+
       <ContactList
+        moveCard={moveCard}
         removeContact={removeContact}
         onSelectContact={onSelectContact}
-        contacts={contacts}
+        contacts={data}
       />
     </div>
   );

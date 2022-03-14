@@ -5,7 +5,6 @@ export function loadContacts() {
     const { filterBy } = getState().contactModule;
     try {
       const contacts = await contactService.query(filterBy);
-      console.log(contacts);
       dispatch({ type: 'SET_CONTACTS', contacts });
     } catch (err) {
       console.log(err);
@@ -39,7 +38,6 @@ export function getContactById(contactId) {
 export function save(contact) {
   return async (dispatch) => {
     try {
-      console.log('IM HERE');
       await contactService.save(contact);
       dispatch({ type: 'UPDATE_CONTACT', contact });
     } catch (err) {

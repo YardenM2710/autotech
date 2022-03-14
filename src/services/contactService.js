@@ -59,7 +59,6 @@ function remove(id) {
 }
 
 function save(contactToSave) {
-  console.log('contact : ', contactToSave);
   if (contactToSave._id) {
     const idx = gContacts.findIndex(
       (contact) => contact._id === contactToSave._id
